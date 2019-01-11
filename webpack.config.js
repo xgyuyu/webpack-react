@@ -8,18 +8,15 @@ module.exports = {
     output: {
         // 指明编译好的文件所在目录
         path: path.resolve('./dist'),
-        // 加上哈希值
-        filename: 'bundle.[hash:8].js'
+        // 加上哈希值 就是[hash:8].
+        filename: 'bundle.js'
     },
     // 模块配置
     module: {
         rules: [{
             test: /\.(js|jsx)$/,
             use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['es2015', 'react'],
-                }
+                loader: 'babel-loader'
             },
             exclude: /node_modules/
         }]
@@ -28,17 +25,17 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         // 打包html插件
-        // 先清空build在进行打包
+        // 如果先清空build在进行打包
         // new CleanWebpackPlugin(['./dist']),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './dist/index.html'), // 指定模板
             title: '我是标题', // 设置打包后的html的标题
             hash: true,
-            inject: true
-            /* minify:{
+            inject: true,
+            minify:{
                 removeAttributeQuotes:true,// 让html去除双引号
                 collapseWhitespace:true // 去除空格html都在一行
-            } */
+            }
         })
     ],
     devServer: {
