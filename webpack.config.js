@@ -26,9 +26,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         // 打包html插件
         // 如果先清空build在进行打包
-        // new CleanWebpackPlugin(['./dist']),
+        new CleanWebpackPlugin(['./dist']),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './dist/index.html'), // 指定模板
+            template: './index.html', // 指定模板
             title: '我是标题', // 设置打包后的html的标题
             // hash: true,
             inject: true,
@@ -40,7 +40,7 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.resolve(__dirname, './dist'),
-        port: 3000,
+        port: 3003,
         compress: true, // 服务器压缩
         open: true, // 自动打开浏览器
         hot: true // 热更新
