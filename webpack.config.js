@@ -30,7 +30,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './dist/index.html'), // 指定模板
             title: '我是标题', // 设置打包后的html的标题
-            hash: true,
+            // hash: true,
             inject: true,
             minify:{
                 removeAttributeQuotes:true,// 让html去除双引号
