@@ -9,5 +9,5 @@ const reducer = ( state = [], action ) => {
 const store = createStore(reducer)
 
 ReactDOM.render(
-    <div>Hello World123</div>, document.getElementById('app')
+  <div>Hello World123</div>, document.getElementById('app'),
 )
