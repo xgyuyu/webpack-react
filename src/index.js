@@ -1,13 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers  } from 'redux'
+// 引用redux
+import { createStore, applyMiddleware } from 'redux'
+import rootReducer from './reducers/index'
+import { Provider } from 'react-redux'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import createSagaMiddleware from 'redux-saga'
+import createLogger from 'redux-logger' // 利用redux-logger打印日志
 
-const reducer = ( state = [], action ) => {
-  return state
-}
 
-const store = createStore(reducer)
+import App from './components/App'
+import { watchIncrementAsync } from './sagas';
+import './css/index.css'
+import './css/index.less'
+
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(
+    applyMiddleware(sagaMiddleware, createLogger)
+  )
+)
+
+sagaMiddleware.run(watchIncrementAsync);
 
 ReactDOM.render(
-  <div>Hello World123</div>, document.getElementById('app'),
+  <Provider store={ store }>
+    <App></App>
+  </Provider>, document.getElementById('app'),
 )
