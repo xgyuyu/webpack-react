@@ -32,8 +32,7 @@ module.exports = {
     },
     // 模块配置
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 use: {
                     loader: 'eslint-loader',

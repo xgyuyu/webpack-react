@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server && npm run test-eslint",
-    "build": "npm run test-eslint && webpack",
+    "build": "webpack",
     "eslint-fix": "eslint --fix src/",
     "test-eslint": "eslint src/",
     "lint": "eslint --cache --ignore-path .gitignore --ext .jsx,.js --format=node_modules/eslint-formatter-pretty ."
