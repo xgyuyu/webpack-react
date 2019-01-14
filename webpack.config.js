@@ -1,5 +1,5 @@
-let path = require('path');
-let HtmlWebpackPlugin = require('html-webpack-plugin');
+let path = require('path')
+let HtmlWebpackPlugin = require('html-webpack-plugin')
 let CleanWebpackPlugin = require('clean-webpack-plugin')
 let webpack = require('webpack')
 let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
