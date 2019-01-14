@@ -5,7 +5,7 @@
     ],
     "plugins": [
         [
-            "transform-runtime",
+            "babel-plugin-transform-runtime",
             {
                 "helpers": false,
                 "polyfill": false,
