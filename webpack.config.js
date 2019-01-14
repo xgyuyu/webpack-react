@@ -32,7 +32,7 @@ module.exports = {
     },
     // 模块配置
     module: {
-        rules: [{
+        rules: [/* {
                 test: /\.js$/,
                 use: {
                     loader: 'eslint-loader',
@@ -43,7 +43,7 @@ module.exports = {
                 enforce: 'pre', // 编译前检查
                 exclude: /node_modules/, // 不检测的文件
                 include: [__dirname + '/src'], // 要检查的目录
-            },
+            }, */
             {
                 test: /\.(js|jsx)$/,
                 use: {
