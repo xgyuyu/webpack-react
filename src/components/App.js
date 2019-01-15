@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Route, Link } from 'react-router-dom'
 import { increment, incrementAsync } from '../actions/counter'
 import Login from './login/Login'
-import Home from './login/Home'
+import Home from './home/Home'
 console.log(increment())
 
 export class App extends Component {

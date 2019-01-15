@@ -19,11 +19,12 @@ function showMessage(msg, fn = () => {}) {
   }
 }
 
-export function Fetch(obj, option) {
-  let url = baseUrl + obj.url
-  let options = Object.assign(obj.method, option)
-  console.log(options)
-  fetch(url, options)
+export function fetchData(url, type, options) {
+  let Url = baseUrl + url
+  fetch(Url, {
+    method: type,
+    body: options
+  })
   .then(res => {
     let { status } = res
     if (status !== 200) {

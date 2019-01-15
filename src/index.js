@@ -8,11 +8,8 @@ import { Provider } from 'react-redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
 import createLogger from 'redux-logger' // 利用redux-logger打印日志
-
 import { HashRouter, Switch, Route, Redirect } from 'react-router-dom'
-
-import createBrowserHistory from "history/createHashHistory";
-
+import createBrowserHistory from "history/createHashHistory"
 
 const history = createBrowserHistory()
 
@@ -42,8 +39,8 @@ const Div = props => (
     <HashRouter  history={history}>
     <div>
       <Switch>
-        <Route  path="/" component={App}/>
-        <Route  path="/login" component={Login}/>
+        <Route path="/" component={App}/>
+        <Route path="/login" component={Login}/>
       </Switch>
       </div>
     </HashRouter>
