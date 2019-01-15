@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Route, Link } from 'react-router-dom'
 import { increment, incrementAsync } from '../actions/counter'
-
+import Login from './login/Login'
+import Home from './login/Home'
 console.log(increment())
 
 export class App extends Component {
@@ -25,6 +27,10 @@ export class App extends Component {
         <button onClick={this.isOddAdd}>+Odd</button>
         <br />
         <button onClick={this.props.incrementAsync}>Async+</button>
+        <Link to="/login">登陆</Link>
+        <Link to="/home">主页</Link>
+        <Route path='/home' component={Home}></Route>
+        <Route path='/login' component={Login}></Route>
       </div>
     )
   }
