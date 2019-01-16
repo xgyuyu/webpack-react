@@ -23,21 +23,23 @@ export function fetchData(url, type, options) {
   let Url = baseUrl + url
   fetch(Url, {
     method: type,
-    body: options
+    body: JSON.stringify(options.param)
   })
   .then(res => {
+    console.log(res)
     let { status } = res
     if (status !== 200) {
       throw new Error(status)
+      // showMessage('您输入的账号或者密码有误')
     }
-    return res.json()
+    // return JSON.parse(res.text())
+    return eval(res.text())
   })
   .then(json => {
-    const error = json.code
-    if (error !== 0) {
-      showMessage(decodeURIComponent(json.msg))
-      throw new Error(json.msg)
-    }
-    return json.info
+    json = JSON.parse(json)
+    console.log(json)
+    // if (json.code == 0) {
+    return json
+    // }
   })
 }

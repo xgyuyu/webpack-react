@@ -15,7 +15,8 @@ const history = createBrowserHistory()
 
 import App from './components/App'
 import Login from './components/login/Login'
-import { watchIncrementAsync } from './sagas'
+import { loginSage } from './components/login/saga'
+import { getstudata } from './components/home/saga'
 import './css/index.css'
 import './css/index.less'
 
@@ -29,7 +30,7 @@ const store = createStore(
   )
 )
 
-sagaMiddleware.run(watchIncrementAsync)
+sagaMiddleware.run(getstudata)
 
 // const history = syncHistoryWithStore(createBrowserHistory(), store)
 // history.listen(location => analyticsService.track(location.pathname))
@@ -39,8 +40,8 @@ const Div = props => (
     <HashRouter  history={history}>
     <div>
       <Switch>
-        <Route path="/" component={App}/>
         <Route path="/login" component={Login}/>
+        <Route path="/" component={App}/>
       </Switch>
       </div>
     </HashRouter>

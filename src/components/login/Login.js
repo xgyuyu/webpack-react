@@ -1,39 +1,21 @@
 import React, { Component } from 'react'
-import { Icon, Input, Button } from 'antd';
+import { Icon, Input, Button } from 'antd'
 import './login.less'
-import Password from 'antd/lib/input/Password';
+import { connect } from 'react-redux'
+import { changeUsername, changePassword, login } from './action'
 
 export class Login extends Component {
   constructor(props) {
     super(props)
-    this.updateUsername = this.updateUsername.bind(this)
-    this.updatePasswd = this.updatePasswd.bind(this)
-    this.submitLogin = this.submitLogin.bind(this)
-    this.state = {
-      // val: 'Hello Word'
-        Username: '',
-        Password: ''
-    }
-  }
-  updateUsername(ev) {
-    this.setState({
-      Username: ev.target.value
-    })
-  }
-  updatePasswd(ev) {
-    this.setState({
-      Password: ev.target.value
-    })
-  }
-  submitLogin() {
-    console.log(this.state)
   }
   render() {
+    const props = this.props
     return (
       <div className='login'>
-        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} value={this.state.Username} onChange={this.updateUsername} placeholder="Username" />
-        <Input prefix={<Icon type="password" style={{ color: 'rgba(0,0,0,.25)' }} />}  value={this.state.Password}  onChange={this.updatePasswd} placeholder="Password" />
-        <Button type="primary" htmlType="submit" className="login-form-button" onClick={this.submitLogin}>
+        <h2>学生管理系统</h2>
+        <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} value={props.username} onChange={(e) => {console.log(props);props.dispatch(changeUsername(e.target.value))}} placeholder="Username" />
+        <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password"  value={props.password}  onChange={(e) => {props.dispatch(changePassword(e.target.value))}} placeholder="Password" />
+        <Button type="primary" htmlType="submit" className="login-form-button" onClick={() => {props.dispatch(login(props.username, props.password))}}>
           登录
         </Button>
       </div>
@@ -41,4 +23,11 @@ export class Login extends Component {
   }
 }
 
-export default Login
+const mapStateToProps = (state) => {
+  return {
+    username: state.login.username,
+    password: state.login.password
+  }
+}
+
+export default connect(mapStateToProps)(Login)
