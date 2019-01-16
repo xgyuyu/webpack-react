@@ -19,27 +19,14 @@ function showMessage(msg, fn = () => {}) {
   }
 }
 
-export function fetchData(url, type, options) {
+export default async function fetchData(url, configObj){
   let Url = baseUrl + url
-  fetch(Url, {
-    method: type,
-    body: JSON.stringify(options.param)
+  const res = await fetch(Url, Object.assign(configObj)).then(function(res){
+    return res
+  }).catch(function(err){
+    console.log(err)
+    showMessage(err)
+    return err
   })
-  .then(res => {
-    console.log(res)
-    let { status } = res
-    if (status !== 200) {
-      throw new Error(status)
-      // showMessage('您输入的账号或者密码有误')
-    }
-    // return JSON.parse(res.text())
-    return eval(res.text())
-  })
-  .then(json => {
-    json = JSON.parse(json)
-    console.log(json)
-    // if (json.code == 0) {
-    return json
-    // }
-  })
+  return res.json()
 }

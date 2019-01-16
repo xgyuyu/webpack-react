@@ -1,15 +1,25 @@
-import { put, fork, takeLatest, take } from 'redux-saga/effects'
+import { put, fork, takeLatest, take, call } from 'redux-saga/effects'
 import * as types from './types'
 import { history } from '../../common/history'
-import { loginsend } from './apiServer'
+import fetchData from '../../common/index'
+import { getData } from '../home/saga'
 
 function* login(action) {
-  const res = yield loginsend(action)
+  console.log(action)
+  const res = yield call(fetchData, '/login', {
+    method:'POST',
+    body:JSON.stringify({
+      username:action.param.username,
+      password:action.param.password
+    })
+  })
   console.log(res)
   history.push('#/home')
-  // window.location.reload()
+  // huozheyongif
+  // 登陆成功后调用
+  yield fork(getData)
 }
 
-export function* loginSage() {
+export function* loginSaga() {
   yield takeLatest(types.LOGIN, login)
 }

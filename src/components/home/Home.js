@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Table } from 'antd'
 import './home.less'
-import { getstudata } from './action'
 import { connect } from 'react-redux'
 
 const columns = [{
@@ -13,21 +12,21 @@ const columns = [{
 }, {
   title: '住址',
   dataIndex: 'address',
-}];
+}]
 const data = []
 export class Home extends Component {
   constructor(props) {
     super(props)
   }
   componentWillMount() {
-    this.props.dispatch(getstudata())
-    console.log(123)
   }
   render() {
     const props = this.props
+    console.log(props)
     return (
       <div className="homeTable">
-        <Table columns={columns} dataSource={data} size="middle" />
+      123
+        <Table columns={columns} dataSource={props.list.list} size="middle" />
       </div>
     )
   }
@@ -35,7 +34,7 @@ export class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    
+    list: state.home
   }
 }
 

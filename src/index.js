@@ -15,8 +15,9 @@ const history = createBrowserHistory()
 
 import App from './components/App'
 import Login from './components/login/Login'
-import { loginSage } from './components/login/saga'
-import { getstudata } from './components/home/saga'
+import { loginSaga } from './components/login/saga'
+import { getData } from './components/home/saga'
+import { watchAll } from './sagas/index'
 import './css/index.css'
 import './css/index.less'
 
@@ -30,7 +31,7 @@ const store = createStore(
   )
 )
 
-sagaMiddleware.run(getstudata)
+sagaMiddleware.run(watchAll)
 
 // const history = syncHistoryWithStore(createBrowserHistory(), store)
 // history.listen(location => analyticsService.track(location.pathname))
