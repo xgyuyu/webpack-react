@@ -12,7 +12,7 @@ export class Login extends Component {
     const props = this.props
     return (
       <div className='login'>
-        <h2>学生管理系统</h2>
+        {/* <h2>学生管理系统</h2> */}
         <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} value={props.username} onChange={(e) => {console.log(props);props.dispatch(changeUsername(e.target.value))}} placeholder="Username" />
         <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password"  value={props.password}  onChange={(e) => {props.dispatch(changePassword(e.target.value))}} placeholder="Password" />
         <Button type="primary" htmlType="submit" className="login-form-button" onClick={() => {props.dispatch(login(props.username, props.password))}}>

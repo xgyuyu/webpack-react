@@ -1,11 +1,9 @@
 import { put, fork, takeLatest, take, call } from 'redux-saga/effects'
-import * as types from './types'
-import { history } from '../../common/history'
-import fetchData from '../../common/index'
-import { getData } from '../home/saga'
+import history from '../../common/history'
+import { fetchData } from '../../common/index'
+import { LOGIN, LOGINOUT } from './types'
 
 function* login(action) {
-  console.log(action)
   const res = yield call(fetchData, '/login', {
     method:'POST',
     body:JSON.stringify({
@@ -14,12 +12,19 @@ function* login(action) {
     })
   })
   console.log(res)
-  history.push('#/home')
-  // huozheyongif
-  // 登陆成功后调用
-  yield fork(getData)
+  // if(res.code) {}
+  history.push('/home')
+}
+
+function* loginout() {
+  const res = yield call(fetchData, '/loginout', { method:'get' })
+  console.log(res)
+  if (res.code == 0) {
+    history.push('/login')
+  }
 }
 
 export function* loginSaga() {
-  yield takeLatest(types.LOGIN, login)
+  yield takeLatest(LOGIN, login)
+  yield takeLatest(LOGINOUT, loginout)
 }

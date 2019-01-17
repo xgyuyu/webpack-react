@@ -13,7 +13,6 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Link to="/home">主页</Link>
         <Route path='/home' component={Home}></Route>
       </div>
     )
@@ -27,4 +26,3 @@ export class App extends Component {
 } */
 
 export default App
-// export default connect(mapStateToProps, { increment, incrementAsync })(App)

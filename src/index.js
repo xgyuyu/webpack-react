@@ -15,8 +15,6 @@ const history = createBrowserHistory()
 
 import App from './components/App'
 import Login from './components/login/Login'
-import { loginSaga } from './components/login/saga'
-import { getData } from './components/home/saga'
 import { watchAll } from './sagas/index'
 import './css/index.css'
 import './css/index.less'

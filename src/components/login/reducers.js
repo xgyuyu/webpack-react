@@ -1,4 +1,4 @@
-import { LOGIN, CHANGE_PASSWORD, CHANGE_USERNAME } from './types'
+import { LOGIN, LOGINOUT, CHANGE_PASSWORD, CHANGE_USERNAME } from './types'
 import assign from 'object-assign'
 
 let defaultLogin = {
@@ -17,7 +17,7 @@ export default (state = defaultLogin, action) => {
       password: action.value,
     })
     case LOGIN:
-    return state
+    case LOGINOUT:
     default: return state
   }
 }

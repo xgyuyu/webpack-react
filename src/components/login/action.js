@@ -1,4 +1,4 @@
-import { LOGIN, CHANGE_PASSWORD, CHANGE_USERNAME } from './types'
+import { LOGIN, LOGINOUT, CHANGE_PASSWORD, CHANGE_USERNAME } from './types'
 
 export const changeUsername = (value) => {
     return {
@@ -21,5 +21,11 @@ export const login = (username, password) => {
           username,
           password
         }
+    }
+}
+
+export const loginout = () => {
+    return {
+        type: LOGINOUT
     }
 }
