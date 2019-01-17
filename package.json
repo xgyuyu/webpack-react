@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server && npm run test-eslint",
-    "build": "npm run test-eslint && webpack",
+    "start": "webpack-dev-server --config webpack.dev.config.js",
+    "build": "webpack --config webpack.pro.config.js",
     "eslint-fix": "eslint --fix src/",
     "test-eslint": "eslint src/",
     "lint": "eslint --cache --ignore-path .gitignore --ext .jsx,.js --format=node_modules/eslint-formatter-pretty ."
