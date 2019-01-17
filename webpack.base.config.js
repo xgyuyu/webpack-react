@@ -7,6 +7,8 @@ let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 // 如果分开抽离
 let lessExtract = new ExtractTextWebpackPlugin('css/less.css')
 let cssExtract = new ExtractTextWebpackPlugin('css/css.css')
+// var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin') // 区分大小写
+
 
 // 公用方法配置文件目录
 function resolve(dir) {
@@ -98,6 +100,10 @@ module.exports = {
         lessExtract,
         cssExtract,
         new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(), // 跳过编译时出错的代码并记录，使编译后运行时的包不会发生错误
+        /* new webpack.DefinePlugin({
+            '_ABC_': false // 定义全局常量!常量!常量!
+        }) */
         // 打包html插件
         // 如果先清空build在进行打包
         // new CleanWebpackPlugin(['./dist']),

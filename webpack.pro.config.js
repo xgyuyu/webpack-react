@@ -1,5 +1,3 @@
-let path = require('path')
-let HtmlWebpackPlugin = require('html-webpack-plugin')
 let CleanWebpackPlugin = require('clean-webpack-plugin')
 let config = require('./webpack.base.config')
 
