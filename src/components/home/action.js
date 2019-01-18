@@ -1,4 +1,4 @@
-import { GET_STU_DATA, SET_STU_DATA, VIEW_DETAIL, ISVISIBLE } from './types'
+import { GET_STU_DATA, SET_STU_DATA, VIEW_DETAIL, ISVISIBLE, DATE } from './types'
 
 export const setstudata = (action) => {
   return {
@@ -24,5 +24,11 @@ export const isvisible = (params) => {
   return {
     type: ISVISIBLE,
     param: params
+  }
+}
+
+export const date = () => {
+  return {
+    type: DATE
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Modal, Button } from 'antd'
 import './home.less'
 import { connect } from 'react-redux'
-import { getstudata, viewdetail, isvisible } from './action'
+import { getstudata, viewdetail, isvisible, date } from './action'
 import { loginout } from '../login/action'
 import StuList from './stuList/StuList'
 
@@ -41,6 +41,7 @@ export class Home extends Component {
       <div className="home_table">
       <p>
         <span className="login_title">欢迎</span>
+        <Button className="logout_btn" type="primary" onClick={() => {this.props.dispatch(date())}}>时间</Button>
         <Button className="logout_btn" type="primary" onClick={() => {this.props.dispatch(loginout())}}>退出</Button>
       </p>
         <Modal

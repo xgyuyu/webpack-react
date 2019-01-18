@@ -1,10 +1,11 @@
-import { GET_STU_DATA, SET_STU_DATA, VIEW_DETAIL, ISVISIBLE } from './types'
+import { GET_STU_DATA, SET_STU_DATA, VIEW_DETAIL, ISVISIBLE, DATE } from './types'
 import assign from 'object-assign'
 
 let defaultData = {
   list: [],
   detail: {},
-  isVisible: false
+  isVisible: false,
+  date: ''
 }
 
 export default (state = defaultData, action) => {
@@ -23,6 +24,7 @@ export default (state = defaultData, action) => {
     return assign({}, state, {
       isVisible: action.param
     })
+    case DATE:
     default:
     return state
   }
