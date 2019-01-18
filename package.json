@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.config.js",
-    "build": "webpack --config webpack.pro.config.js",
+    "start": "webpack-dev-server",
+    "build": "webpack",
     "eslint-fix": "eslint --fix src/",
     "test-eslint": "eslint src/",
     "lint": "eslint --cache --ignore-path .gitignore --ext .jsx,.js --format=node_modules/eslint-formatter-pretty ."
@@ -50,7 +50,6 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
