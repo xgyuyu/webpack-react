@@ -35,9 +35,9 @@ export function getUrl(url, params) {
 }
 
 // async
-export function fetchData(url, configObj){
+export async function fetchData(url, configObj){
   let Url = baseUrl + url
-  const res = fetch(Url, Object.assign(configObj)).then(function(res){
+  const res = await fetch(Url, Object.assign(configObj)).then(function(res){
     return res
   }).catch(function(err){
     console.log(err)
