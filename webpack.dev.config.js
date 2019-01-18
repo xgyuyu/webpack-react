@@ -14,7 +14,7 @@ module.exports = Object.assign({}, config, {
         compress: true, // 服务器压缩
         open: true, // 自动打开浏览器
         hot: true, // 热更新
-        quiet: true // 终端输出的只有初始启动信息。 webpack 的警告和错误是不输出到终端的
+        quiet: true // 终端输出的只有初始启动信息。 webpack 的警告和错误是不输出到终端的,配合FriendlyErrorsPlugin
         // proxy:{} // url代理
     },
     mode: 'development'

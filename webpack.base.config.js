@@ -7,7 +7,6 @@ let ExtractTextWebpackPlugin = require('extract-text-webpack-plugin')
 // 如果分开抽离
 let lessExtract = new ExtractTextWebpackPlugin('css/less.css')
 let cssExtract = new ExtractTextWebpackPlugin('css/css.css')
-// var CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin') // 区分大小写
 
 
 // 公用方法配置文件目录
