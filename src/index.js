@@ -48,6 +48,6 @@ const Div = props => (
 )
 
 ReactDOM.render(
-  <Div />, document.getElementById('app'),
+  <Div />, document.getElementById('app')
 )
 

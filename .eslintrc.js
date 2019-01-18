@@ -1,3 +1,4 @@
+// babel-parse
 module.exports = {
   //文件名 .eslintrc.json
   env: {

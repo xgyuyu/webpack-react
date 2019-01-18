@@ -34,9 +34,10 @@ export function getUrl(url, params) {
   return url
 }
 
-export async function fetchData(url, configObj){
+// async
+export function fetchData(url, configObj){
   let Url = baseUrl + url
-  const res = await fetch(Url, Object.assign(configObj)).then(function(res){
+  const res = fetch(Url, Object.assign(configObj)).then(function(res){
     return res
   }).catch(function(err){
     console.log(err)
