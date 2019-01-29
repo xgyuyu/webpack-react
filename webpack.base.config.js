@@ -48,7 +48,10 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 use: {
-                    loader: 'babel-loader'
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: ['transform-decorators-legacy']
+                    }
                 },
                 exclude: /node_modules/, // 不检测的文件
             },
