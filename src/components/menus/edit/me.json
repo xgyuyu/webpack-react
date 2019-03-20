@@ -1,0 +1,5 @@
+{
+  "description": "",
+  "crumb": [],
+  "route": "/:siteUid/:menuId/:isApp/:menuposition?"
+}

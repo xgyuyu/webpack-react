@@ -1,0 +1,47 @@
+.imgItemLay {
+    display: flex;
+    margin-top: 10px;
+}
+.imgbordder {
+    display: flex;
+    border: 1px solid #e5e5e5;
+    margin: 10px 0;
+    padding: 10px 5px;
+}
+.imgClose {
+    position: relative;
+    float: right;
+    color: red;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.fileInput {
+    z-index: 100;
+    left: -91px;
+    opacity: 0;
+    cursor: pointer;
+    max-width: 102px;
+}
+.imgPreview {
+    width: 180px;
+    margin-left: auto;
+    height: 270px;
+}
+.flex {
+    display: flex;
+}
+.flexCuowei {
+    width: 50%;
+    height: 100%;
+}
+.imgTipLay {
+    display: flex;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.imgMsgLay {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}

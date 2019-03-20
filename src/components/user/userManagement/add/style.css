@@ -1,0 +1,54 @@
+.userMarginR {
+    margin-right:10px;
+    vertical-align: middle;
+}
+.userInputBg {
+    margin-top:15px;
+}
+.userInput {
+    margin-bottom:10px;
+    width:300px;
+}
+.userInputBg2 {
+    margin:10px 0;
+}
+.userInputBg3 {
+    margin:10px 0 20px;
+}
+
+
+.userLeft {
+    margin-right:10px;
+    vertical-align: middle;
+    width:60px;
+    display:inline-block;
+    text-align: right;
+}
+.userRight {
+
+}
+.userRight2 {
+    margin-left:70px;
+}
+.userWarning {
+    display: inline-block;
+    width: 315px;
+    margin-left: 20px;
+}
+.userInput2 {
+    width:300px;
+    display: inline-block;
+    padding: 4px 7px;
+    height: 28px;
+    font-size: 12px;
+    line-height: 1.5;
+    border: 1px solid #d9d9d9;
+    border-radius: 6px;
+    margin-bottom:10px;
+    background-color: #f7f7f7;
+    cursor: not-allowed;
+    color: #666;
+}
+.hr {
+    opacity: 0;
+}

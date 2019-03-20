@@ -8,6 +8,7 @@ module.exports = {
     commonjs: true
   },
   extends: 'eslint:recommended',
+  parser: "babel-eslint",
   parserOptions: {
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
@@ -22,7 +23,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'linebreak-style': ["off", "windows"],
-    "semi": ["error", "never"],
+    // "semi": ["error", "never"],
     'no-empty': 0,
     'comma-dangle': 0,
     'no-unused-vars': 0,
@@ -53,5 +54,10 @@ module.exports = {
     'no-class-assign': 2,
     'no-cond-assign': 2,
     'no-mixed-spaces-and-tabs': 0
+  },
+  "globals": {
+    "process": true,
+    "__ROOT_REDUCER__": true,
+    "__ROOT_SAGA__": true
   }
 }

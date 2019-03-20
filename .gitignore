@@ -1,5 +1,10 @@
-# dependencies
-/node_modules
+.idea
 
-# production
-/dist
+.DS_Store
+
+node_modules
+
+*.log
+
+dist
+index.html

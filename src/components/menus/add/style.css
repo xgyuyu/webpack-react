@@ -1,0 +1,99 @@
+.menuCateLeft {
+    width: 20%; vertical-align: top; display: inline-block;
+}
+.menuCateRight {
+    width: 78%; vertical-align: top; display: inline-block;margin-top: -4px;margin-left: 2%;
+}
+
+.categoryAttr { display: inline-block;  line-height: 12px; margin-left:5px;
+    color: #fff;  padding: 3px;  border-radius: 2px;  text-align: center;  width: 35px;  box-shadow: #ccc 1px 1px 3px;  }
+.categoryEditBg {}
+.categoryBorder {line-height:36px;}
+.categoryprimitive { color:#AFAFAF; position: absolute; right:60px;}
+.categoryLevel { color:#fff;border-radius:10px;width:15px;height:15px; display: inline-block;text-align: center;line-height:15px;
+    background-color:rgba(55, 111, 128,0.3);  margin-left:5px; cursor: pointer}
+
+.menuButton { text-align:center;}
+.editMargin { margin:0 10px;}
+
+/*** edit  **/
+.fileInputconbg { position: relative;}
+.fileInputcon { border:1px solid #E5E5E5; margin:10px 0;position:relative;padding: 10px 5px; }
+.fileInputleft { width:140px; height:200px; overflow: hidden;position: absolute;}
+.fileInputright { margin:0 10px 0 150px;padding-top: 60px;height:200px;}
+.fileInputurl { margin:5px 0;}
+.fileInput {
+    position:absolute;left:150px;top:19px;z-index:100;width:92px;height:28px;opacity: 0; cursor:pointer;  }
+.fileInputBg {position:absolute;left:150px;top:19px;z-index:50;  }
+.addImage {
+     position: relative;
+     left: 45%;
+     top: 15px;
+ }
+.radioGroup {
+
+}
+.imgClose {
+    position: relative;
+    float: right;
+    color: red;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/*** link  **/
+.categoryBg { margin-bottom:10px;}
+.categoryListAlt {  margin:10px 0;  }
+.categoryList { padding:0; max-height:280px; overflow-y: auto; margin-bottom:10px; border-bottom: 1px solid #d9d9d9;}
+.categoryListAlt2 {
+    margin:20px 0 28px;
+    width: 100%;
+}
+.tabName {
+    font-size:14px;
+    font-weight: 700;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+.newput {
+    display: block;
+    margin-top: 35px;
+    margin-left: 80px;
+}
+.newspan {
+    margin-top: 35px;
+    float: left;
+}
+.colorInput {
+    font-size: 16px;
+    text-align: center;
+}
+.colorWidth {
+    width: 250px !important;
+}
+.linkbtnLay {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.everyBannerLay {
+    display: flex;
+    margin: 20px 0;
+    border:1px solid #E5E5E5;
+    position:relative;
+    padding: 10px;
+}
+.bannerImgpartLay {
+    flex: 0.4;
+}
+.bannerInfopartLay {
+    flex: 0.6;
+    display: flex;
+    flex-direction: column;
+}
+.previewLay {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
