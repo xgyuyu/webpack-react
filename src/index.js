@@ -13,6 +13,6 @@ function a() {
 
 ReactDOM.render(
   <Router>
-    <App></App>
+    <App />
   </Router>, document.getElementById('app'),
 )

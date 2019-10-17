@@ -17,8 +17,10 @@
     "babel-loader": "^7.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "eslint-plugin-compat": "^3.3.0",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

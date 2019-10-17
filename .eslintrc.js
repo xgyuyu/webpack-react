@@ -20,7 +20,10 @@ module.exports = {
     "semi": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-trailing-spaces": 1, // 一行结束后面不要有空格
-    "linebreak-style": [0 ,"error", "windows"]
+    "linebreak-style": [0 ,"error", "windows"],
+    "class-methods-use-this": "off",
+    "no-console": "off",
+    "react/prop-types": "off",
   },
   "plugins": [
     "compat",
