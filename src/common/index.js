@@ -5,7 +5,6 @@ import { notification } from 'antd'
 import createHistory from 'history/createHashHistory'
 let history = createHistory()
 const baseUrl = ''
-//http://api-doc.dotfashion.cn/mock/776/api
 
 let messageShowed = false
 function showMessage(msg, fn = () => {}) {
