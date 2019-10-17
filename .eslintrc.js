@@ -20,6 +20,7 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
+  parser: "babel-eslint",
   rules: {
     'linebreak-style': ["off", "windows"],
     "semi": ["error", "never"],

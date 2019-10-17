@@ -21,6 +21,7 @@ function* loginout() {
   console.log(res)
   if (res.code == 0) {
     history.push('/login')
+    localStorage.setItem('username', '')
   }
 }
 
