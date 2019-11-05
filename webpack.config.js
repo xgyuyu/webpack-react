@@ -90,7 +90,7 @@ module.exports = {
     },
     // 插件配置
     plugins: [
-        /* // 抽离为一个css 
+        /* // 抽离为一个css
         new ExtractTextWebpackPlugin({
             filename: 'css/index.css'
         }), */

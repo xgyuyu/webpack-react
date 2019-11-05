@@ -13,6 +13,7 @@ function* login(action) {
   })
   console.log(res)
   // if(res.code) {}
+  localStorage.setItem('username', '123')
   history.push('/home')
 }
 
