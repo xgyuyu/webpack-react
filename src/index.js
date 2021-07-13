@@ -1,74 +1,112 @@
-import React, { useState } from "react"
-import ReactDOM, { unstable_batchedUpdates } from "react-dom"
+import React, { Fragment } from "react"
+import ReactDOM  from "react-dom"
+import './css/index.less'
+import {Popover} from 'antd'
+const data = [
+    {
+        id: 1, time: [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 16, 17, 18, 19, 22, 23], num: 11, type: 1,
+    },
+    {
+        id: 1, time: [3, 4, 5, 8, 9, 10, 11, 16, 17, 18, 19], num: 5, type: 2,
+    },
+    {
+        id: 2, time: [3, 4, 5, 8, 9, 10, 11, 16, 17, 18, 19], num: 10, type: 1,
+    },
+    {
+        id: 3, time: [3, 4, 5, 8, 9, 10, 11, 16, 17, 18, 19], num: 9, type: 2,
+    },
+]
 
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-        // 记录 render 的执行次数
-        this.renderCount = 0
-        this.fn1 = this.fn1.bind(this)
-        this.fn2 = this.fn2.bind(this)
-        this.fn3 = this.fn3.bind(this)
-    }
-    fn1(){
-        this.setState({ a: Math.random() })
-        this.setState({ b: Math.random() })
-    }
-    fn2(){
-        // 模拟一个异步操作，（请求接口）
-        setTimeout(() => {
-            this.setState({ a: Math.random() })
-            this.setState({ a: Math.random() })
-        }, 0)
-    }
-    fn3(){
-        // 模拟一个异步操作，（请求接口），使用unstable_batchedUpdates包一下
-        setTimeout(
-            unstable_batchedUpdates(() => {
-                this.setState({ a: Math.random() })
-                this.setState({ a: Math.random() })
-            }),
-            1000
-        )
-    }
-    render() {
-        ++this.renderCount
-        return (
-            <div>
-                <h1>截止到目前 render 执行次数{this.renderCount}</h1>
-                <button onClick={this.fn1}>同步的 setState 两次</button>
-                <br />
-                <button onClick={this.fn2}>在一个异步的事件循环里 setState 两次</button>
-                <br />
-                <button onClick={this.fn3}>
-                    在一个异步的事件循环里 setState 两次, 但是使用
-                    ReactDOM.unstable_batchedUpdates 强制 batch
-                </button>
-            </div>
-        )
-    }
+function sum(arr) {
+    return arr.reduce(function(prev, curr, idx, arr){
+        return prev + curr
+    }, 0)
+}
+
+const App = () => {
+    const time = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22]
+    const time2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    const weekTitle = [
+        {name: '周一', id: 1},
+        {name: '周二', id: 2},
+        {name: '周三', id: 3},
+        {name: '周四', id: 4},
+        {name: '周五', id: 5},
+        {name: '周六', id: 6},
+        {name: '周日', id: 7},
+    ]
+    const weekData = weekTitle.map(v => {
+        let obj = {id: v.id, arr: []}
+        if (data.map(r => r.id).includes(v.id)) {
+            const arr = data.filter(l => l.id ===v.id)
+            obj = {
+                id: v.id,
+                arr
+            }
+        }
+        return obj
+    })
+
+    console.log(weekData)
+
+    return (
+        <div>
+            <table border="0" cellSpacing="0" cellPadding="0"  style={{borderCollapse: 'collapse', borderSpacing: 0}}>
+                <thead>
+                    <tr>
+                        <th />
+                        {
+                            weekTitle.map((v) => (
+                                <th key={v.name}>
+                                    {v.name}
+                                </th>
+                            ))
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                {
+                    time2.map(v => (
+                        <tr style={{height: 24}} key={v}>
+                            <td>
+                                {time.includes(v) ? v : ''}
+                            </td>
+                            {
+                                weekData.map((r) => (
+                                    <td key={r.id}>
+                                        <Popover>
+                                            <div>
+                                                {sum((r.arr || []).map(v => v.num) || [])}
+                                            </div>
+                                        </Popover>
+
+                                        {
+                                            (r.arr || []).map((o) => (
+                                                <Fragment key={o.type}>
+                                                    {
+                                                        (o.type===1 && ((r.arr[0] || {}).time || []).includes(v)) && <div style={{width: 32, height: '100%', background: 'aqua', display: 'inline-block'}} />
+                                                    }
+                                                    {
+                                                        (o.type===2 && ((r.arr[1] || {}).time || []).includes(v)) && <div style={{width: 32, height: '100%', background: 'red', display: 'inline-block'}} />
+                                                    }
+                                                </Fragment>
+                                            ))
+                                        }
+                                    </td>
+
+                                ))
+                            }
+                        </tr>
+                    ))
+                }
+                </tbody>
+            </table>
+        </div>
+    )
 }
 
 
 
-// function App() {
-//     let [count, setCount] = useState(0)
-//     return (
-//         <div onClick={() => setCount(count + 1)}>
-//             Parent clicked {count} times
-//             <Child />
-//         </div>
-//     )
-// }
-//
-// function Child() {
-//     let [count, setCount] = useState(0)
-//     return (
-//         <button onClick={() => setCount(count + 1)}>
-//             Child clicked {count} times
-//         </button>
-//     )
-// }
 
 
 const rootElement = document.getElementById("app")
